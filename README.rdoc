@@ -1,6 +1,5 @@
-== README
+== RATEBEER
 
 This repo was part of my coursework for a Ruby on Rails course at the University of Helsinki.
 
-{Heroku}(https://morning-fjord-12953.herokuapp.com/)
-<tt>rake doc:app</tt>.
+{Heroku}[https://cryptic-atoll-52777.herokuapp.com]
