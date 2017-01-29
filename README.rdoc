@@ -1,5 +1,5 @@
 == RATEBEER
 
-This repo was part of my coursework for a Ruby on Rails course at the University of Helsinki.
+This repo is part of my coursework for a Ruby on Rails course at the University of Helsinki.
 
 {Heroku}[https://cryptic-atoll-52777.herokuapp.com]

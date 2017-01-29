@@ -1,0 +1,94 @@
+[13] pry(main)> brewery = Brewery.new name: "BrewDog", year: 2007
+=> #<Brewery:0x007fc020d73740
+ id: nil,
+ name: "BrewDog",
+ year: 2007,
+ created_at: nil,
+ updated_at: nil>
+[14] pry(main)> brewery.save
+   (0.1ms)  begin transaction
+  SQL (0.3ms)  INSERT INTO "breweries" ("name", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "BrewDog"], ["year", 2007], ["created_at", "2017-01-26 09:28:26.360602"], ["updated_at", "2017-01-26 09:28:26.360602"]]
+   (1.4ms)  commit transaction
+=> true
+[15] pry(main)> brewery
+=> #<Brewery:0x007fc020d73740
+ id: 7,
+ name: "BrewDog",
+ year: 2007,
+ created_at: Thu, 26 Jan 2017 09:28:26 UTC +00:00,
+ updated_at: Thu, 26 Jan 2017 09:28:26 UTC +00:00>
+[16] pry(main)> b1 = Beer.new name: "Punk IPA", style:"IPA", brewery_id: 7
+=> #<Beer:0x007fc020b6be20
+ id: nil,
+ name: "Punk IPA",
+ style: "IPA",
+ brewery_id: 7,
+ created_at: nil,
+ updated_at: nil>
+[17] pry(main)> b1.save
+   (0.1ms)  begin transaction
+  SQL (0.3ms)  INSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Punk IPA"], ["style", "IPA"], ["brewery_id", 7], ["created_at", "2017-01-26 09:30:41.616201"], ["updated_at", "2017-01-26 09:30:41.616201"]]
+   (1.5ms)  commit transaction
+=> true
+[18] pry(main)> b1
+=> #<Beer:0x007fc020b6be20
+ id: 15,
+ name: "Punk IPA",
+ style: "IPA",
+ brewery_id: 7,
+ created_at: Thu, 26 Jan 2017 09:30:41 UTC +00:00,
+ updated_at: Thu, 26 Jan 2017 09:30:41 UTC +00:00>
+[19] pry(main)> b2 = Beer.new name: "Nanny State", style:"lowalcohol", brewery_id: 7
+=> #<Beer:0x007fc021bc2418
+ id: nil,
+ name: "Nanny State",
+ style: "lowalcohol",
+ brewery_id: 7,
+ created_at: nil,
+ updated_at: nil>
+[20] pry(main)> b2.save
+   (0.1ms)  begin transaction
+  SQL (0.3ms)  INSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Nanny State"], ["style", "lowalcohol"], ["brewery_id", 7], ["created_at", "2017-01-26 09:31:23.919150"], ["updated_at", "2017-01-26 09:31:23.919150"]]
+   (1.5ms)  commit transaction
+=> true
+[21] pry(main)> b1.ratings.create score:25
+   (0.1ms)  begin transaction
+  SQL (0.2ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 25], ["beer_id", 15], ["created_at", "2017-01-26 09:32:37.658629"], ["updated_at", "2017-01-26 09:32:37.658629"]]
+   (1.6ms)  commit transaction
+=> #<Rating:0x007fc024e6a050
+ id: 4,
+ score: 25,
+ beer_id: 15,
+ created_at: Thu, 26 Jan 2017 09:32:37 UTC +00:00,
+ updated_at: Thu, 26 Jan 2017 09:32:37 UTC +00:00>
+[22] pry(main)> b1.ratings.create score:30
+   (0.1ms)  begin transaction
+  SQL (0.2ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 30], ["beer_id", 15], ["created_at", "2017-01-26 09:32:47.451854"], ["updated_at", "2017-01-26 09:32:47.451854"]]
+   (1.4ms)  commit transaction
+=> #<Rating:0x007fc024dd3830
+ id: 5,
+ score: 30,
+ beer_id: 15,
+ created_at: Thu, 26 Jan 2017 09:32:47 UTC +00:00,
+ updated_at: Thu, 26 Jan 2017 09:32:47 UTC +00:00>
+[23] pry(main)> b2.ratings.create score:29
+   (0.1ms)  begin transaction
+  SQL (0.2ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 29], ["beer_id", 16], ["created_at", "2017-01-26 09:32:56.756222"], ["updated_at", "2017-01-26 09:32:56.756222"]]
+   (1.4ms)  commit transaction
+=> #<Rating:0x007fc0250d0cb8
+ id: 6,
+ score: 29,
+ beer_id: 16,
+ created_at: Thu, 26 Jan 2017 09:32:56 UTC +00:00,
+ updated_at: Thu, 26 Jan 2017 09:32:56 UTC +00:00>
+[24] pry(main)> b2.ratings.create score:12
+   (0.1ms)  begin transaction
+  SQL (0.8ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 12], ["beer_id", 16], ["created_at", "2017-01-26 09:33:02.809840"], ["updated_at", "2017-01-26 09:33:02.809840"]]
+   (1.5ms)  commit transaction
+=> #<Rating:0x007fc024ce3178
+ id: 7,
+ score: 12,
+ beer_id: 16,
+ created_at: Thu, 26 Jan 2017 09:33:02 UTC +00:00,
+ updated_at: Thu, 26 Jan 2017 09:33:02 UTC +00:00>
+[25] pry(main)>
