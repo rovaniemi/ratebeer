@@ -10,4 +10,5 @@ class Beer < ActiveRecord::Base
     end
 
     validates :name, presence: true
+    validates :style, presence: true
 end

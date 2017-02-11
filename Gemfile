@@ -10,6 +10,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'pry-rails'
   gem "better_errors"
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :production do
@@ -47,6 +48,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+end
+
+group :test do
+  gem 'factory_girl_rails'
 end
 
 group :development do
