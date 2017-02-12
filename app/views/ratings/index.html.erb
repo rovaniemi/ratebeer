@@ -3,8 +3,16 @@
 
 <ul>
   <% @ratings.each do |rating| %>
-    <li> <%= rating %> <%= link_to rating.user.username, rating.user  %> </li>
+    <li>
+      <% if rating.beer.nil? %>
+        <%= rating.score %>
+      <% else %>
+        <%= rating %> <%= link_to rating.user.username, rating.user  %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 
-<%= link_to 'New Rating', new_rating_path %>
+<% if current_user %>
+  <%= link_to 'Create a new rating', new_rating_path%>
+<% end %>
