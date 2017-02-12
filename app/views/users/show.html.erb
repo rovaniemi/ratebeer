@@ -19,9 +19,14 @@
 </p>
 
 <h3>Favourites</h3>
-<p>
-  Favourite beer: <%= @user.favorite_beer %>, Favourite style: <%= @user.favorite_style %>, brewery: <%= @user.favorite_brewery %>
-</p>
+
+<% unless @user.ratings.empty? %>
+   <p>Beer: <%= @user.favorite_beer.name %></p>
+   <p>Style: <%= @user.favorite_style %></p>
+   <p>Brewery: <%= @user.favorite_brewery %></p>
+<% end %>
+
+
 
 
 <h2>ratings</h2>
