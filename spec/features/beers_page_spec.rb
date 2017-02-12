@@ -32,11 +32,6 @@ describe "Beer" do
       expect{
          click_button "Create Beer"
       }.to change{Beer.count}.from(0).to(1)
-
     end
-
-
-
-
   end
 end

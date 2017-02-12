@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-02-12T16:04:35+02:00">2017-02-12T16:04:35+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-02-12T19:25:36+02:00">2017-02-12T19:25:36+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.51
+         1.74
        </span>
     </span> hits/line)
   </h2>
@@ -223,11 +223,11 @@
       <tr>
         <td class="strong"><a href="#5afd1f1a55d8fd11ff93619c29703e3936602d8d" class="src_link" title="app/models/concerns/rating_average.rb">app/models/concerns/rating_average.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>6</td>
-        <td>4</td>
-        <td>4</td>
+        <td>7</td>
+        <td>5</td>
+        <td>5</td>
         <td>0</td>
-        <td>2.5</td>
+        <td>14.6</td>
       </tr>
       
       <tr>
@@ -253,11 +253,11 @@
       <tr>
         <td class="strong"><a href="#200c99d2b54bc740184f3c237558ad1c96e20f2c" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>57</td>
-        <td>25</td>
-        <td>25</td>
+        <td>48</td>
+        <td>24</td>
+        <td>24</td>
         <td>0</td>
-        <td>5.3</td>
+        <td>6.5</td>
       </tr>
       
     </tbody>
@@ -390,7 +390,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.82
+         4.15
        </span>
     </span> hits/line)
   </h2>
@@ -448,11 +448,11 @@
       <tr>
         <td class="strong"><a href="#5afd1f1a55d8fd11ff93619c29703e3936602d8d" class="src_link" title="app/models/concerns/rating_average.rb">app/models/concerns/rating_average.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>6</td>
-        <td>4</td>
-        <td>4</td>
+        <td>7</td>
+        <td>5</td>
+        <td>5</td>
         <td>0</td>
-        <td>2.5</td>
+        <td>14.6</td>
       </tr>
       
       <tr>
@@ -478,11 +478,11 @@
       <tr>
         <td class="strong"><a href="#200c99d2b54bc740184f3c237558ad1c96e20f2c" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>57</td>
-        <td>25</td>
-        <td>25</td>
+        <td>48</td>
+        <td>24</td>
+        <td>24</td>
         <td>0</td>
-        <td>5.3</td>
+        <td>6.5</td>
       </tr>
       
     </tbody>
@@ -4133,8 +4133,8 @@
     <h3>app/models/concerns/rating_average.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>4</b> relevant lines. 
-      <span class="green"><b>4</b> lines covered</span> and
+      <b>5</b> relevant lines. 
+      <span class="green"><b>5</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -4160,19 +4160,25 @@
           <code class="ruby">    def average_rating</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="4">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="22" data-linenumber="4">
+          <span class="hits">22</span>
           
-          <code class="ruby">        ratings.average(:score)</code>
+          <code class="ruby">      return nil if ratings.empty?</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="covered" data-hits="48" data-linenumber="5">
+          <span class="hits">48</span>
+          
+          <code class="ruby">      (ratings.map { |a| a.score }.sum / ratings.count.to_f).round(1)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby">end</code>
@@ -4361,8 +4367,8 @@
     <h3>app/models/user.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>25</b> relevant lines. 
-      <span class="green"><b>25</b> lines covered</span> and
+      <b>24</b> relevant lines. 
+      <span class="green"><b>24</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -4595,7 +4601,7 @@
         <li class="never" data-hits="" data-linenumber="38">
           
           
-          <code class="ruby">      SELECT beers.*, SUM(ratings.score) as sum</code>
+          <code class="ruby">      SELECT beers.*, SUM(ratings.score)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
@@ -4619,7 +4625,7 @@
         <li class="covered" data-hits="7" data-linenumber="42">
           <span class="hits">7</span>
           
-          <code class="ruby">      GROUP BY beers.style ORDER BY sum DESC LIMIT 1&quot;).first.style</code>
+          <code class="ruby">      GROUP BY beers.style ORDER BY SUM(ratings.score) DESC LIMIT 1&quot;).first.style</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="43">
@@ -4640,73 +4646,19 @@
           <code class="ruby">  def favorite_brewery</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="46">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="38" data-linenumber="46">
+          <span class="hits">38</span>
           
-          <code class="ruby">    return nil if ratings.empty?</code>
+          <code class="ruby">    return ratings.map { |a| a.beer.brewery }.uniq.sort_by { |b| b.average_rating }.last</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">    return Beer.find_by_sql(&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
-          <code class="ruby">      SELECT beers.*,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby">      SUM(ratings.score) as sum</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
-          <code class="ruby">      FROM beers</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="51">
-          
-          
-          <code class="ruby">      JOIN breweries ON breweries.id = beers.brewery_id</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="52">
-          
-          
-          <code class="ruby">      JOIN users ON ratings.user_id = users.id</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="53">
-          
-          
-          <code class="ruby">      JOIN ratings ON beers.id = ratings.beer_id</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="54">
-          
-          
-          <code class="ruby">      WHERE ratings.user_id = &quot; + id.to_s + &quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="7" data-linenumber="55">
-          <span class="hits">7</span>
-          
-          <code class="ruby">      GROUP BY breweries.id ORDER BY sum DESC LIMIT 1&quot;).first.brewery.name</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="56">
-          
-          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="57">
+        <li class="never" data-hits="" data-linenumber="48">
           
           
           <code class="ruby">end</code>
