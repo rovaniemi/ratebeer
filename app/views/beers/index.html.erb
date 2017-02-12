@@ -28,6 +28,6 @@
 
 <br>
     <tr>
-      <td><%= link_to 'New Beer', new_beer_path %></td>
+      <%= link_to('New Beer', new_beer_path) if current_user %>
       <td><%= link_to 'List of breweries', breweries_path %></td>
     </tr>

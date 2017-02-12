@@ -3,8 +3,14 @@ require 'rails_helper'
 include Helpers
 
 describe "Beer" do
+  let!(:user) { FactoryGirl.create :user }
+
   before :each do
     FactoryGirl.create :brewery
+    visit singin_path
+    fill_in('username', with:'Pekka')
+    fill_in('password', with:'Foobar1')
+    click_button('Log in')
   end
 
   describe "New beer" do
