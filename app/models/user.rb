@@ -33,13 +33,13 @@ class User < ActiveRecord::Base
   end
 
   def favorite_style
+    ratings.map { |a| a.beer.style }.uniq.sort_by { |b| style_average(b) }.last
+  end
+
+  def style_average (att)
     return nil if ratings.empty?
-    return Beer.find_by_sql("
-      SELECT beers.*, SUM(ratings.score)
-      FROM beers JOIN ratings ON beers.id = ratings.beer_id
-      JOIN users ON ratings.user_id = users.id
-      WHERE ratings.user_id = " + id.to_s + "
-      GROUP BY beers.style ORDER BY SUM(ratings.score) DESC LIMIT 1").first.style
+    all = ratings.find_all{|a| a.beer.style == att}.map{|a| a.score}
+    (all.sum / all.count.to_f).round(2)
   end
 
   def favorite_brewery
