@@ -447,22 +447,30 @@
       ],
       "/Users/karlin/Documents/github/ratebeer/lib/beermapping_api.rb": [
         1,
+        null,
         1,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
+        5,
+        9,
         null,
         null,
         1,
-        0,
+        null,
+        1,
+        4,
+        null,
+        4,
+        4,
+        null,
+        4,
+        null,
+        3,
+        3,
+        5,
+        null,
+        null,
+        null,
+        1,
+        4,
         null,
         null
       ],
@@ -684,6 +692,6 @@
         0
       ]
     },
-    "timestamp": 1487012429
+    "timestamp": 1487096841
   }
 }

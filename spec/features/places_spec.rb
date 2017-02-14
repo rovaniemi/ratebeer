@@ -34,10 +34,6 @@ describe "Places" do
     visit places_path
     fill_in('city',with: 'kumpula')
     click_button "Search"
-    save_and_open_page
     expect(page).to have_content "No locations in kumpula"
   end
 end
-
-#jos API palauttaa useita olutpaikkoja, kaikki näistä näytetään sivulla
-#jos API ei löydä paikkakunnalta yhtään olutpaikkaa (eli paluuarvo on tyhjä taulukko), sivulla näytetään ilmoitus "No locations in etsitty paikka"
