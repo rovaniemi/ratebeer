@@ -7,7 +7,13 @@
   <%= submit_tag "Search" %>
 <% end %>
 
+
+
+
 <% if @places %>
+  <p><strong>Current beer weather in <%= @city %></strong></p>
+  <img src= <%=@weather["condition"]["icon"]%> >
+  <p><%= @weather["temp_c"] %> celsius</p>
   <table>
     <thead>
       <% Place.rendered_fields.each do |f| %>
